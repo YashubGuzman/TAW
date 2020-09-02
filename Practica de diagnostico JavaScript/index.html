@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<div class="row">
+	<div class="col-md-12">
+    <br>
+	<h1>Formulario</h1>
+	<br>
+
+    <form action="" name="formulario" method="get">
+<div class="form-group offset-md-6">
+    <label for="inputEmail1" class="col-lg-2 control-label">Fecha</label>
+    <div class="col-md-4">
+      <input type="date" name="fecha" autofocus class="form-control" id="fecha" placeholder="Fecha">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Nombre</label>
+    <div class="col-md-8">
+      <input type="text" name="nombre" autofocus class="form-control" id="nombre" placeholder="Nombre">
+
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="edad">Edad</label>
+          <input type="text" class="form-control" id="edad" placeholder="Edad">
+        </div>
+        <div class="form-group col-md-5">
+          <label for="fecha_nac">Fecha de nacimiento</label>
+          <input type="date" class="form-control" id="fecha_nac" placeholder="Fecha de nacimiento">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="direccion">Dirección</label>
+            <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+          </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="ocupacion">Ocupación</label>
+          <input type="text" class="form-control" id="ocupacion" placeholder="Ocupación">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="telefono">Telefono</label>
+            <input type="tel" class="form-control" id="telefono" placeholder="Telefono">
+          </div>
+          <div class="form-group col-md-5">
+            <label for="celular">Celular</label>
+            <input type="tel" class="form-control" id="celular" placeholder="Celular">
+          </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="nombre_padre">Nombre del padre</label>
+          <input type="text" class="form-control" id="nombre_padre" placeholder="Nombre del padre">
+        </div>
+          <div class="form-group col-md-6">
+            <label for="ocupacion_padre">Ocupación</label>
+            <input type="tel" class="form-control" id="ocupacion_padre" placeholder="Ocupación">
+          </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="nombre_madre">Nombre de la madre</label>
+          <input type="text" class="form-control" id="nombre_madre" placeholder="Nombre de la madre">
+        </div>
+          <div class="form-group col-md-6">
+            <label for="ocupacion_madre">Ocupación</label>
+            <input type="tel" class="form-control" id="ocupacion_madre" placeholder="Ocupación">
+          </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="recomendado">Fui recomendado por</label>
+          <input type="text" class="form-control" id="recomendado" placeholder="Nombre de la persona que te recomendo">
+        </div>
+      </div>
+
+      1.- ¿Es la primera visita al dentista?
+      <br><br>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="1_customRadioInline1" name="1_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="1_customRadioInline1">Si</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="1_customRadioInline2" name="1_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="1_customRadioInline2">No</label>
+      </div>
+      <br><br>
+
+      2.- ¿Padece actualmente de alguna enfermedad?
+      <br><br>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="2_customRadioInline1" name="2_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="2_customRadioInline1">Si</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="2_customRadioInline2" name="2_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="2_customRadioInline2">No</label>
+      </div>
+      <br><br>
+
+      3.- ¿Está tomando algun medicamento actualmente?
+      <br><br>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="3_customRadioInline1" name="3_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="3_customRadioInline1">Si</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="3_customRadioInline2" name="3_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="3_customRadioInline2">No</label>
+      </div>
+      <br><br>
+
+      4.- ¿Es alergico a algun medicamento?
+      <br><br>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="4_customRadioInline1" name="4_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="4_customRadioInline1">Si</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="4_customRadioInline2" name="4_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="4_customRadioInline2">No</label>
+      </div>
+      <br><br>
+
+      5.- ¿Respira por la boca?
+      <br><br>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="5_customRadioInline1" name="5_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="5_customRadioInline1">Si</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="5_customRadioInline2" name="5_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="5_customRadioInline2">No</label>
+      </div>
+      <br><br>
+
+      6.- ¿Le sangran las encías con facilidad?
+      <br><br>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="6_customRadioInline1" name="6_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="6_customRadioInline1">Si</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="6_customRadioInline2" name="6_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="6_customRadioInline2">No</label>
+      </div>
+      <br><br>
+
+      7.- ¿Se chupa el dedo?
+      <br><br>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="7_customRadioInline1" name="7_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="7_customRadioInline1">Si</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="7_customRadioInline2" name="7_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="7_customRadioInline2">No</label>
+      </div>
+      <br><br>
+
+      8.- ¿Se muerde las uñas?
+      <br><br>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="8_customRadioInline1" name="8_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="8_customRadioInline1">Si</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="8_customRadioInline2" name="8_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="8_customRadioInline2">No</label>
+      </div>
+      <br><br>
+
+      9.- ¿Ha estado bajo tratamiento de ortodoncia previamente?
+      <br><br>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="9_customRadioInline1" name="9_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="9_customRadioInline1">Si</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="9_customRadioInline2" name="9_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="9_customRadioInline2">No</label>
+      </div>
+      <br><br>
+
+      <div class="form-group">
+        <label for="motivo">Motivo de la consulta</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+
+      <br><br>
+
+      <h3>Facial</h3>
+
+      <br>
+
+      Simetria:
+      
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="facial1_customRadioInline1" name="facial1_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="facial1_customRadioInline1">Si</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="facial1_customRadioInline2" name="facial1_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="facial1_customRadioInline2">No</label>
+      </div>
+      <br><br>
+
+      Perfil:
+      
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="facial2_customRadioInline1" name="facial2_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="facial2_customRadioInline1">Recto</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="facial2_customRadioInline2" name="facial2_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="facial2_customRadioInline2">Concavo</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="facial2_customRadioInline3" name="facial2_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="facial2_customRadioInline3">Convexo</label>
+      </div>
+      <br><br>
+
+      Tipo facial:
+      
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="facial3_customRadioInline1" name="facial3_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="facial3_customRadioInline1">Normofacial</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="facial3_customRadioInline2" name="facial3_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="facial3_customRadioInline2">Braquifacial</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="facial3_customRadioInline3" name="facial3_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="facial3_customRadioInline3">Dolicofacial</label>
+      </div>
+      <br><br>
+
+      Labios:
+      
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="facial4_customRadioInline1" name="facial4_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="facial4_customRadioInline1">Competentes</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="facial4_customRadioInline2" name="facial4_customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="facial4_customRadioInline2">Incopetencia</label>
+      </div>
+      <br><br>
+
+      
+      
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      
+        <input type="submit" id="btn" name="btn" class="btn btn-primary" value="Enviar">
+    </form>
+
+    <script>
+        (function(){
+
+            var formulario = document.getElementsByName('formulario')[0],
+                elementos = formulario.elements,
+                boton = document.getElementById('btn');
+
+            var validarTodo = function(){
+                if(formulario.fecha.value == 0 || formulario.nombre.value == 0 || formulario.edad.value == 0 || formulario.fecha_nac.value == 0 || formulario.direccion.value == 0 || formulario.ocupacion.value == 0 || formulario.telefono.value == 0 || formulario.celular.value == 0){
+                    alert("Aun hay campos son completar, todos los campos deben estar llenos");
+                }
+            }
+
+
+            var validar = function(){
+                validarTodo();
+                
+            };
+
+            formulario.addEventListener("submit", validar);
+
+        }())
+        
+    </script>
+
+    </div>
+  </div>
+</form>
+	</div>
+</div>
+
+
+</html>
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	
+	<title>Validando formularios</title>
+	
+	<meta charset="utf-8" />
+	
+</head>
+<body>
+	
+	<form action="" name="formulario" method="get">
+		
+		<input type="text" name="nombre" id="nombre" maxlength="30" placeholder="Nombre:">
+		<br>
+		
+		<input type="radio" name="sexo" id="hombre" value="Hombre"><label>Hombre</label>
+		<input type="radio" name="sexo" id="mujer" value="Mujer"><label>Mujer</label>
+		<br>
+		
+		<input type="checkbox" name="terminos" id="terminos"><label>Terminos y Condiciones</label>
+		<br>
+		
+		<input type="submit" name="btn" id="btn" value="Enviar">
+		
+	</form>
+	
+	<script>
+        (function(){
+
+            var formulario = document.getElementsByName('formulario')[0],
+                elementos = formulario.elements,
+                boton = document.getElementById('btn');
+
+            var validarNombre = function(){
+                if(formulario.nombre.value == 0){
+                    alert("Completa el campo nombre");
+                }
+            };
+
+            var validar = function(){
+                validarNombre();
+            };
+
+            formulario.addEventListener("submit", validar);
+
+        }())
+        
+    </script>
+	
+</body>
+</html>
+-->
