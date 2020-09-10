@@ -16,11 +16,10 @@
             $enlacesController = "index";
         }
         //Mandar el paramatro de "enlacesController al modelo EnlacesPaginas" en su propiedad enlacesPaginasModel
-        $repuesta = EnlacesPaginas::enlacesPaginasModel(){$enlacesController};
+        $respuesta=enlacesPaginas::enlacesPaginasModel($enlacesController);
         include $respuesta;
     }
 
 }
-
 
 ?>
