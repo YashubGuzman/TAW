@@ -23,17 +23,17 @@
         $datosController = array("usuario"=>$_POST["usuarioRegistro"],
                                     "password"=>$_POST["passwordRegistro"],
                                     "email"=>$_POST["emailRegistro"]);
-                                    //Enviamos los parametros al Modelo para que procese el registro
-                                    $respuesta = Datos::registroUsuarioModel($datosController,"usuarios")
+                //Enviamos los parametros al Modelo para que procese el registro
+                $respuesta = Datos::registroUsuarioModel($datosController,"usuarios")
 
-                                    //Recibir la respuesta del modelo para saber que sucedios (success o error)
+                //Recibir la respuesta del modelo para saber que sucedios (success o error)
                                     
-                                    if($respuesta == "success"){
-                                        header("location:index.php?action=ok");
-                                    }
-                                    else{
-                                        header("location:index.php");
-                                    }
+                if($respuesta == "success"){
+                    header("location:index.php?action=ok");
+                }
+                else{
+                    header("location:index.php");
+                }
 }
 
 }
