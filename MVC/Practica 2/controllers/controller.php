@@ -71,6 +71,21 @@
                     </tr>';
                 }
             }
+            //MÉTODO EDITAR USUARIOS
+            public function editarUsuarioController(){
+                //Solicitar el id del usuario a editar
+                $datosController =  $_GET["id"];
+                //Enviamos al modelo el id para hacer la consulta y obtener sus datos
+                $respuesta = Datos::editarUsuarioModel($datosController, "usuarios");
+
+                //Recibimos respuesta del modelo e IMPRIMIMOS UN FORM PARA EDITAR
+                echo '<input type="hidden' value="'.$respuesta["id"].'"name="idEditar">
+                <input type="hidden' value="'.$respuesta["usuario"].'"name="usuarioEditar" required>
+                <input type="hidden' value="'.$respuesta["password"].'"name="passwordEditar" required>
+                <input type="hidden' value="'.$respuesta["email"].'"name="emailEditar" required>
+                <input type="submit" value="Actualizar">';
+
+            }
         }
     }
 
