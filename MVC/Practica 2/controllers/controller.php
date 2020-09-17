@@ -56,7 +56,22 @@
                         }
                     }
                 }
-}
-}
+
+                //Método VISTA USUARIOS
+                public function vistaUsuariosController(){
+                    //Envío al modelo la variable de control y la tabla a donde se hará la consulta.
+                    $respuesta = Datos::vistaUsuariosModel("usuarios");
+                    foreach($respuesta as $row => $item){
+                    echo '<tr>
+                            <td>'.$item["usuario"].'</td>
+                            <td>'.$item["contrasena"].'</td>
+                            <td>'.$item["email"].'</td>
+                            <td><a hred="index.php?action=editar&id='.$item["id"].'"><button> EDITAR </button></a></td>
+                            <td><a hred="index.php?action=usuarios&idBorrar='.$item["id"].'"><button> ELIMINAR </button></a></td>
+                    </tr>';
+                }
+            }
+        }
+    }
 
 ?>
