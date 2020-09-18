@@ -42,5 +42,17 @@
             return $stmt->fetchAll();
             $stmt->close();
         }
+
+        //Método para SELECCIONAR usuarios
+        public function editarUsuarioModel($datosModel, $tabla){
+            //SELECT
+            $stmt = Conexion::conectar()->prepare("SELECT id, usuario, contrasena, email FROM $tabla WHERE id = :id");
+            $stmt->bindParam(":id", $datosModel, PDO::PARAM_INT);
+            $STMT->execute();
+            return $stmt->fetch();
+            $stmt->close();
+        }
+        //Método para ACTUALIZAR usuarios(UPDATE)
+        
     }
 ?>
