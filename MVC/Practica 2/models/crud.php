@@ -53,6 +53,40 @@
             $stmt->close();
         }
         //Método para ACTUALIZAR usuarios(UPDATE)
+        public function actualizarUsuarioModel($datosModel, $tabla){
+            //Preparar el QUERY
+            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET usuario = :usuario, contrasena = :password, email = :email WHERE id = :id");
+
+            //Ejecutar el QUERY
+            $stmt->bindParam(":usuario", $datosModel["usuario"], PDO::PARAM_STR);
+            $stmt->bindParam(":password", $datosModel["contrasena"], PDO::PARAM_STR);
+            $stmt->bindParam(":email", $datosModel["email"], PDO::PARAM_STR);
+            $stmt->bindParam(":id", $datosModel["id"], PDO::PARAM_STR);
+
+            //Preparar respuesta
+            if($stmt->execute()){
+                return "succes";
+            }else{
+                return "error";
+            }
+
+            //Cerrar la conexión PDO
+            $stmt->close();
+        }
+        //Borrar USUARIOS
+        public function borrarUsuarioModel($datosModel,$tabla){
+            $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+            
+            $stmt->bindParam(":id",$datosModel, PDO::PARAM_STR);
+
+            //Ejecutar
+            if($stmt->execute()){
+                return "success";
+            }else{
+                return "error";
+            }
+            $stmt->close();
+        }
         
     }
 ?>
