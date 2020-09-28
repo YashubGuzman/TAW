@@ -6,13 +6,10 @@
     }
 ?>
 
-<h1> USUARIOS </h1>
+<h1> Carreras </h1>
     <table border="1">
         <thead>
             <tr>
-                <th>Usuario</th>
-                <th>Contraseña</th>
-                <th>Email</th>
                 <th>Carrera</th>
                 <th></th>
                 <th></th>
@@ -21,8 +18,8 @@
         <tbody>
             <?php
                 $vistaUsuario = new MvcController();
-                $vistaUsuario->vistaUsuariosController();
-                $vistaUsuario->borrarUsuarioController();
+                $vistaUsuario->vistaCarrerasController();
+             //   $vistaUsuario->borrarCarreraController();
             ?>
         </tbody>
     </table>

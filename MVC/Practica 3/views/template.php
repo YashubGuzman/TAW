@@ -53,7 +53,7 @@
 
 
 	<header>
-		<h1>BIENVENIDOS A LA PRACTICA N° 2</h1>
+		<h1>BIENVENIDOS A LA PRACTICA N° 3</h1>
 	</header>
 
 	<?php  
