@@ -13,7 +13,6 @@
                 <th>Usuario</th>
                 <th>Contraseña</th>
                 <th>Email</th>
-                <th>Carrera</th>
                 <th></th>
                 <th></th>
             </tr>

@@ -23,8 +23,7 @@ public function registroUsuariosController(){
     if(isset($_POST["usuarioRegistro"])){
     $datosController = array("usuario"=>$_POST["usuarioRegistro"],
                                 "password"=>$_POST["passwordRegistro"],
-                                "email"=>$_POST["emailRegistro"],
-                                "id_carrera"=>$_POST["carrera"]);
+                                "email"=>$_POST["emailRegistro"]);
             //Enviamos los parametros al Modelo para que procese el registro
             $respuesta = Datos::registroUsuarioModel($datosController,"usuarios");
 
@@ -70,7 +69,6 @@ public function registroUsuariosController(){
                             <td>'.$item["usuario"].'</td>
                             <td>'.$item["password"].'</td>
                             <td>'.$item["email"].'</td>
-                            <td>'.$item["id_carrera"].'</td>
                             <td><a href="index.php?action=editar&id='.$item["id"].'"><button> Editar </button></td>
                             <td><a href="index.php?action=usuarios&idBorrar='.$item["id"].'"><button>Borrar</button></td>
                     </tr>';
@@ -129,31 +127,7 @@ public function registroUsuariosController(){
                 }
             }
 
-            //Método VISTA CARRERAS
-            public function vistaCarrerasController(){
-                //Envío al modelo la variable de control y la tabla a donde se hará la consulta.
-                $respuesta = Datos::vistaCarrerasModel("carreras");
-                foreach($respuesta as $row => $item){
-                echo '<tr>
-                        <td>'.$item["carrera"].'</td>
-                        <td><a hred="index.php?action=editar&id='.$item["id_carrera"].'"><button> EDITAR </button></a></td>
-                        <td><a hred="index.php?action=usuarios&idBorrar='.$item["id_carrera"].'"><button> ELIMINAR </button></a></td>
-                </tr>';
-            }
-        }
 
-            //Método OPTIONS CARRERAS
-            public function optionCarrerasController(){
-                //Envío al modelo la variable de control y la tabla a donde se hará la consulta.
-                $respuesta = Datos::vistaCarrerasModel("carreras");
-                foreach($respuesta as $row => $item){
-                echo '<tr>
-                        <td>'.$item["carrera"].'</td>
-                        <td><a hred="index.php?action=editar&id='.$item["id_carrera"].'"><button> EDITAR </button></a></td>
-                        <td><a hred="index.php?action=usuarios&idBorrar='.$item["id_carrera"].'"><button> ELIMINAR </button></a></td>
-                </tr>';
-            }
-        }
         }
     
 

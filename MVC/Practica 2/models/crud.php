@@ -6,13 +6,12 @@
         public function registroUsuarioModel($datosModel,$tabla){
             //preparar el modelo para hacer los inserts en la bd
     
-            $stmt=conexion::conectar()->prepare("INSERT INTO $tabla(usuario,password,email,id_carrera) VALUES(:usuario,:password,:email,:id_carrera)");
+            $stmt=conexion::conectar()->prepare("INSERT INTO $tabla(usuario,password,email) VALUES(:usuario,:password,:email)");
             //prepare prepara una sentencia sql para ser ejecutada por el metodo pdostatement::execute
     
             $stmt->bindParam(":usuario",$datosModel["usuario"],PDO::PARAM_STR);
             $stmt->bindParam(":password",$datosModel["password"],PDO::PARAM_STR);
             $stmt->bindParam(":email",$datosModel["email"],PDO::PARAM_STR);
-            $stmt->bindParam(":id_carrera",$datosModel["id_carrera"],PDO::PARAM_INT);
     
             if ($stmt->execute()) {
                 return "success";
@@ -38,7 +37,7 @@
         }
         //METODO PARA VISTA USUARIO
         public function vistaUsuariosModel($tabla){
-            $stmt = Conexion::conectar()->prepare("select id, usuario, password, email, carreras.carrera as id_carrera FROM $tabla inner join carreras on usuarios.id_carrera=carreras.id_carrera");
+            $stmt = Conexion::conectar()->prepare("select id, usuario, password, email FROM $tabla");
             $stmt->execute();
             return $stmt->fetchAll();
             $stmt->close();
@@ -89,13 +88,7 @@
             $stmt->close();
         }
 
-        //METODO PARA VISTA CARRERAS
-        public function vistaCarrerasModel($tabla){
-            $stmt = Conexion::conectar()->prepare("SELECT id_carrera, carrera FROM $tabla");
-            $stmt->execute();
-            return $stmt->fetchAll();
-            $stmt->close();
-        }
+
         
     }
 ?>
