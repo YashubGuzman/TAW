@@ -7,19 +7,20 @@
 ?>
 
 <h1> Carreras </h1>
+    <button><a href="index.php?action=nuevacarrera" style="text-decoration:none" >Nueva carrera</a></button>
+    <br>
+    <br>
     <table border="1">
         <thead>
             <tr>
-                <th>Carrera</th>
-                <th></th>
-                <th></th>
+                <th colspan="3">Carrera</th>
             </tr>
         </thead>
         <tbody>
             <?php
-                $vistaUsuario = new MvcController();
-                $vistaUsuario->vistaCarrerasController();
-             //   $vistaUsuario->borrarCarreraController();
+                $vistaCarrera = new MvcController();           
+                $vistaCarrera->vistaCarrerasController();
+                $vistaCarrera->borrarCarreraController();
             ?>
         </tbody>
     </table>
