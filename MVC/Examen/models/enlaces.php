@@ -6,12 +6,14 @@ class Paginas{
 	public function enlacesPaginasModel($enlaces){
 
 
-		if($enlaces == "ingresar" || $enlaces == "usuarios" || $enlaces == "editar" || $enlaces == "carreras" || $enlaces == "salir" || $enlaces == "nuevacarrera" || $enlaces == "nuevamateria" || $enlaces == "editarMaterias" || $enlaces == "editarCarrera" || $enlaces == "materias"){
+		if($enlaces == "libros" || $enlaces == "salir"){
 			$module =  "views/".$enlaces.".php";
 		}else if($enlaces == "index"){
 			$module =  "views/registro.php";
 		}
-
+		else if($enlaces == "ok"){
+			$module =  "views/registro.php";
+		}
 		else if($enlaces == "ok"){
 			$module =  "views/registro.php";
 		}

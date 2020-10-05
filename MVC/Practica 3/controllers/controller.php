@@ -309,7 +309,7 @@ public function registroCarreraController(){
 
                 //Recibimos la respuesta del modelo de eliminación
                 if($respuesta == "success"){
-                    header("location:index.php?action=carreras");
+                    header("location:index.php?action=materias");
                 }
             }
         }
