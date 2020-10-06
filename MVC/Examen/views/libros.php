@@ -6,21 +6,24 @@
     }
 ?>
 
-<h1> USUARIOS </h1>
+<h1> LIBROS </h1>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Usuario</th>
-                <th>Contraseña</th>
-                <th>Email</th>
+                <th>ISBN</th>
+                <th>Nombre</th>
+                <th>Autor</th>
+                <th>Editorial</th>
+                <th>Edición</th>
+                <th>Año</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <?php
-                $vistaUsuario = new MvcController();
-                $vistaUsuario->vistaUsuariosController();
-                $vistaUsuario->borrarUsuarioController();
+                $vistaLibro = new MvcController();
+                $vistaLibro->vistaLibrosController();
+                $vistaLibro->borrarLibrosController();
             ?>
         </tbody>
     </table>

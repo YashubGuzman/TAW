@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Examen unidad 1</title>
+	<title>EXAMEN UNIDAD 1</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 
 	<style>
         body{
             padding: 0;
             margin: 0;
+            background:#D1DDE1;
         }
 		header{
 			position:relative;
@@ -20,19 +24,19 @@
                 margin:auto;
                 width:100%;
                 height:auto;
-                background:black;
+                background:#3762A0;
             }
 
             nav ul{
                 position:relative;
                 margin:auto;
-                width:50%;
+                width:100%;
                 text-align: center;
             }
 
             nav ul li{
                 display:inline-block;
-                width:15%;
+                width:12%;
                 line-height: 50px;
                 list-style: none;
             }

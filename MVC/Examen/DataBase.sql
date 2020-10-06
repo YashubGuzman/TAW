@@ -9,5 +9,15 @@ autor varchar(50),
 editorial varchar(50),
 edicion varchar(50),
 anio year
+);
+
+create table usuarios(
+id int not null auto_increment primary key,
+usuario text,
+password text,
+email text
 
 );
+
+insert into usuarios(usuario,password,email)
+value ("yashub","admin","yashubge@gmail.com");

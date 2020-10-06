@@ -5,11 +5,12 @@
         exit();
     }
 ?>
+
 <form method="POST">
     <?php
-        $editarUsuario = new MvcController();
-        $editarUsuario->editarUsuarioController();
-        $editarUsuario->actualizarUsuarioController();
+        $editarLibro = new MvcController();
+        $editarLibro->editarLibroController();
+        $editarLibro->actualizarLibroController();
     ?>
 
 </form>
