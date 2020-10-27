@@ -32,3 +32,4 @@ route::get('/hola','App\Http\Controllers\RecetaController');
 
 Route::get('/recetas','App\Http\Controllers\RecetaController');
 
+Route::get('/recetas/listado','App\Http\Controllers\Receta2Controller@index');
