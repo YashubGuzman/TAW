@@ -42,7 +42,16 @@ class Receta2Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=request();
+
+        //Fasad de Laravel para insertar un registro a la BD
+        DB::table('receta2s')->insert([
+            'receta'=>$data['receta']
+
+        ]);
+
+        //Almacena la receta a la BD
+        //dd($request->all());
     }
 
     /**
