@@ -32,4 +32,6 @@ route::get('/hola','App\Http\Controllers\RecetaController');
 
 Route::get('/recetas','App\Http\Controllers\RecetaController');
 
-Route::get('/recetas/listado','App\Http\Controllers\Receta2Controller@index');
+Route::get('/recetas/listado','App\Http\Controllers\Receta2Controller@index')->name('recetas.index');
+
+Route::get('/recetas/listado/crear','App\Http\Controllers\Receta2Controller@create')->name('recetas.create');

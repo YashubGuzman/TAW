@@ -31,6 +31,7 @@ class Receta2Controller extends Controller
     public function create()
     {
         //
+        return view('recetas.create');
     }
 
     /**
