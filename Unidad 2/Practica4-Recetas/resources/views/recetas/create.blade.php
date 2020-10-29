@@ -11,7 +11,7 @@
 <!-- Diseñar el formulario para guardar receta-->
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
-        <form method="POST" action="{{route('recetas.store')}}">
+        <form method="POST" action="{{route('recetas.store')}}" novalidate>
             @csrf
             <!--Campo de receta-->
             <div class="form-group">
@@ -21,6 +21,14 @@
                         class="form-control"
                         placeholder="Título de la receta"
                         />
+
+                        <!--Directiva de Laravel para poner un mensaje de error -->
+                        @error('receta')
+                            <spam class="invalid-feedback d-block" role="alert">
+                                <!-- Ponemos un mensaje generado por Laravel -->
+                                <strong>{{$message}}</strong>
+                        @enderror
+                            
             </div>
             <!--Botón-->
             <div class="form-group">

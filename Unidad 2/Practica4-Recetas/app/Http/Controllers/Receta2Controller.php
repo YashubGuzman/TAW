@@ -42,7 +42,10 @@ class Receta2Controller extends Controller
      */
     public function store(Request $request)
     {
-        $data=request();
+        $data=request()->validate([
+            //Reglas de validación
+            'receta'=>'required|min:6'
+        ]);
 
         //Fasad de Laravel para insertar un registro a la BD
         DB::table('receta2s')->insert([
