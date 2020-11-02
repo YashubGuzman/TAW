@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class Receta2Controller extends Controller
 {
+        //Validar la restricción a todos los métodos de usuario autenticado
+        public function __construct(){
+            $this->middleware('auth');
+        }
     /**
      * Display a listing of the resource.
      *
@@ -41,18 +45,29 @@ class Receta2Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   $ban=1;
+
+        
         $data=request()->validate([
             //Reglas de validación
             'receta'=>'required|min:6'
         ]);
 
-        //Fasad de Laravel para insertar un registro a la BD
+        if($ban==1){
+    
+            //Fasad de Laravel para insertar un registro a la BD
         DB::table('receta2s')->insert([
             'receta'=>$data['receta']
-
+            
         ]);
 
+        $ban=2;
+    
+    }
+        if($ban==2){
+        return view('recetas.create');
+        
+    }
         //Almacena la receta a la BD
         //dd($request->all());
     }

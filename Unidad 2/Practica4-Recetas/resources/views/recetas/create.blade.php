@@ -18,8 +18,9 @@
                     <label for="Titulo de receta"></label>
                     <input type="text"
                         name="receta"
-                        class="form-control"
+                        class="form-control @error('receta') is-invalid @enderror"
                         placeholder="Título de la receta"
+                        value={{old('receta')}}
                         />
 
                         <!--Directiva de Laravel para poner un mensaje de error -->
@@ -28,14 +29,17 @@
                                 <!-- Ponemos un mensaje generado por Laravel -->
                                 <strong>{{$message}}</strong>
                         @enderror
+            
                             
             </div>
             <!--Botón-->
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Agregar receta">
+                <input type="submit" class="btn btn-primary" value="Agregar receta" data-toggle="modal" data-target="#exampleModal">
             </div>
         </form>
     </div>
 </div>
+
+
 @endsection
 
