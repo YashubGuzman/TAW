@@ -14,6 +14,7 @@
         <form method="POST" action="{{route('recetas.store')}}" novalidate>
             @csrf
             <!--Campo de receta-->
+
             <div class="form-group">
                     <label for="Titulo de receta"></label>
                     <input type="text"
@@ -29,6 +30,20 @@
                                 <!-- Ponemos un mensaje generado por Laravel -->
                                 <strong>{{$message}}</strong>
                         @enderror
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for='categoria'>Categoria</label>
+                                <select
+                                    name="categoria";
+                                    class="form-control @error('categoria') @enderror"
+                                    id="categoria">
+                                    @foreach($categorias as $id => $categoria)
+                                    <option value="{{$id}}">
+                                    @endforeach
+                                </select>
+                            </div>
+
             
                             
             </div>

@@ -34,8 +34,11 @@ class Receta2Controller extends Controller
      */
     public function create()
     {
-        //
-        return view('recetas.create');
+        //Creamos una consulta a la db sobre las categorias de las recetas
+        $categorias = DB::table('categoria_receta')->get()->pluck('nombre','id'); //Esta consulta retorna un array con los elementos de la tabla categoria
+
+        //Manda a la vista del formulario
+        return view('recetas.create')->with('categorias',$categorias);
     }
 
     /**
