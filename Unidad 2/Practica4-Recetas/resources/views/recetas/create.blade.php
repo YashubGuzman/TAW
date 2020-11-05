@@ -36,12 +36,23 @@
                                 <label for='categoria'>Categoria</label>
                                 <select
                                     name="categoria";
-                                    class="form-control @error('categoria') @enderror"
+                                    class="form-control @error('categoria') is-invalid @enderror"
                                     id="categoria">
+                                    <option value="">--Seleccione--</option>
                                     @foreach($categorias as $id => $categoria)
-                                    <option value="{{$id}}">
+                                    <option value="{{$id}}"
+                                    {{old('categoria')==$id?'selected': ''}}
+                                    >{{$categoria}}</option>
                                     @endforeach
                                 </select>
+                                <!--Validación y mandamos retroalimentación al usuario -->
+                                @error('categoria')
+                                <spam class="invalid-feedback d-block" role="alert">
+                                    <!-- Ponemos un mensaje de laravel-->
+                                    <strong> {{$message}}</strong>
+                                    @enderror
+
+
                             </div>
 
             

@@ -53,7 +53,8 @@ class Receta2Controller extends Controller
         
         $data=request()->validate([
             //Reglas de validación
-            'receta'=>'required|min:6'
+            'receta'=>'required|min:6',
+            'categoria' => 'required'
         ]);
 
         if($ban==1){
