@@ -54,7 +54,10 @@ class Receta2Controller extends Controller
         $data=request()->validate([
             //Reglas de validación
             'receta'=>'required|min:6',
-            'categoria' => 'required'
+            'categoria' => 'required',
+            'preparacion'=>'required',
+            'ingredientes' => 'required',
+            'imagen' => 'required|image|size:2000',
         ]);
 
         if($ban==1){
