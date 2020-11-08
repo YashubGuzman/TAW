@@ -61,7 +61,7 @@ class Receta2Controller extends Controller
             'categoria' => 'required',
             'preparacion'=>'required',
             'ingredientes' => 'required',
-            //'imagen' => 'required',
+            'imagen' => 'required|image|',
         ]);
 
         //Obtener la ruta de la imagen
