@@ -21,7 +21,10 @@ class Receta2Controller extends Controller
     {
         
         //Se guarda en una variable los datos de la tabla receta2s
-        $recetas = DB::table('receta2s')->get();
+        $recetas = DB::table('receta2s')
+                    ->join('categoria_receta', 'categoria_receta.id', '=', 'receta2s.categoria_id')  //inner join para traer el nombre de la categoria correspondiente al id
+                    ->join('users', 'users.id', '=', 'receta2s.user_id')    //inner join para traer el nombre del usuario que creo la receta correspondiente al ids
+                    ->get();
 
         //Retornar a la vista recetas/listado enviando como parametro la variable en donde trajimos nuestros datos
         return view('recetas.listado',compact('recetas'));
@@ -50,21 +53,33 @@ class Receta2Controller extends Controller
     public function store(Request $request)
     {   $ban=1;
 
-        
+        //Accedemos a un campo del $request y lo almacenamos con store y la ruta de guardado
+
         $data=request()->validate([
             //Reglas de validación
             'receta'=>'required|min:6',
             'categoria' => 'required',
             'preparacion'=>'required',
             'ingredientes' => 'required',
-            'imagen' => 'required|image|size:2000',
+            //'imagen' => 'required',
         ]);
 
+        //Obtener la ruta de la imagen
+        $ruta_imagen = $request['imagen']->store('uploads-recetas','public');
+
         if($ban==1){
-    
+            
+
             //Fasad de Laravel para insertar un registro a la BD
         DB::table('receta2s')->insert([
-            'receta'=>$data['receta']
+            'receta'=>$data['receta'],
+            'categoria_id'=>$data['categoria'],
+            'ingredientes'=>$data['ingredientes'],
+            'preparacion'=>$data['preparacion'],
+            'user_id'=>auth()->id(), //Obtiene el id del usuario que esta logeado y lo guarda en la base de datos
+            'imagen'=>$ruta_imagen,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
             
         ]);
 
@@ -72,7 +87,8 @@ class Receta2Controller extends Controller
     
     }
         if($ban==2){
-        return view('recetas.create');
+        //return view('recetas.create');
+        return Receta2Controller::index();
         
     }
         //Almacena la receta a la BD

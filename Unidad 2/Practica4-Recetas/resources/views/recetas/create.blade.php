@@ -18,7 +18,8 @@
 <!-- Diseñar el formulario para guardar receta-->
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
-        <form method="POST" action="{{route('recetas.store')}}" novalidate>
+        <form method="POST" action="{{route('recetas.store')}}"
+            enctype="multipart/form-data" novalidate>
             @csrf
             <!--Campo de receta-->
 
@@ -28,7 +29,7 @@
                         name="receta"
                         class="form-control @error('receta') is-invalid @enderror"
                         placeholder="Título de la receta"
-                        value={{old('receta')}}
+                        value="{{old('receta')}}"
                         />
 
                         <!--Directiva de Laravel para poner un mensaje de error -->
@@ -37,7 +38,8 @@
                                 <!-- Ponemos un mensaje generado por Laravel -->
                                 <strong>{{$message}}</strong>
                         @enderror
-                            </div>
+                        
+            </div>
                             
                             <div class="form-group">
                                 <label for='categoria'>Categoria</label>
@@ -64,12 +66,15 @@
                             <!--Inicio campo de texto de preparación con Trix -->
                             <div class="form-group mt-3">
                                 <label for="preparacion"> Preparación</label>
+                                
                                 <!--Campo de text de preparación, se agrega el elemento OLD para que no se elimine al actualizar la pagina -->
                                 <input id="preparacion" type="hidden" name="preparacion" value="{{old('preparacion')}}">
+                                
                                 <!--Agregamos el editor -->
                                 <trix-editor
                                 class="form-control @error('preparacion') is-invalid @enderror"
-                                input type="preparacion"></trix-editor>
+                                input="preparacion"></trix-editor>
+                                
                                 <!--Validación de mensaje de error -->
                                 @error('preparacion')
                                 <spam class="invalid-feedback d-block" role="alert">
@@ -87,7 +92,7 @@
                                 <!--Agregamos el editor -->
                                 <trix-editor
                                 class="form-control @error('ingredientes') is-invalid @enderror"
-                                input type="ingredientes"></trix-editor>
+                                input="ingredientes"></trix-editor>
                                 <!--Validación de mensaje de error -->
                                 @error('ingredientes')
                                 <spam class="invalid-feedback d-block" role="alert">
@@ -101,11 +106,10 @@
                             <div class="form-group mt-3">
                                 <label for="imagen"> Elige una imagen</label>
                                 <input
-                                    id="imagen"
                                     type="file"
-                                    class="form-control @error('ingredientes') is-invalid @enderror"
                                     name="imagen"
-                                    >
+                                    id="imagen"
+                                    class="form-control @error('imagen') is-invalid @enderror">
                                     <!--Validar mensaje de error-->
                                     @error('imagen')
                                         <spam class="invalid-feedback d-block" role="alert">
@@ -114,11 +118,7 @@
                                     @enderror
                                     
                                     <!--Fin de campo imagen-->
-
-
-            
-                            
-            </div>
+                            </div>
             <!--Botón-->
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Agregar receta" data-toggle="modal" data-target="#exampleModal">
