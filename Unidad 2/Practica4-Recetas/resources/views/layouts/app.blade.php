@@ -12,6 +12,10 @@
     <!--Definir el yield de estilos para la integración del editor Trix -->
     @yield('styles')
 
+
+    <!-- Traer las categorias de la base de datos -->
+    @yield('categorias')
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -24,7 +28,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-danger">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -58,11 +62,16 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('recetas.index') }}">
+                                        Ver recetas
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    
+                                    
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -70,6 +79,29 @@
                                 </div>
                             </li>
                         @endguest
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="navbar navbar-expand-md navbar-light categorias-bg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categorias">
+                    <span class="navbar-toggler-icon"></span>
+                    Categorias
+                </button>
+                <div class="collapse navbar-collapse" id="categorias">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav w-100 d-flex justify-content-between">
+                        
+ 
+                        <li class="nav-item">
+                            <a class="nav-link" href="">
+
+                                
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

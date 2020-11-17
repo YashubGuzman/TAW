@@ -14,26 +14,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-
-//Ruta para mostrar un controlador que retorna un String
-
-route::get('/hola','App\Http\Controllers\RecetaController');
 
 //Ruta para consumir un controlador llamado recetas
 
-Route::get('/recetas','App\Http\Controllers\RecetaController');
+//Route::get('/recetas','App\Http\Controllers\RecetaController');
 
-Route::get('/recetas/listado','App\Http\Controllers\Receta2Controller@index')->name('recetas.index');
+Route::get('/recetas','App\Http\Controllers\Receta2Controller@index')->name('recetas.index');
 
-Route::get('/recetas/listado/crear','App\Http\Controllers\Receta2Controller@create')->name('recetas.create');
+Route::get('/recetas/crear','App\Http\Controllers\Receta2Controller@create')->name('recetas.create');
 
-Route::post('/recetas/listado/crear','App\Http\Controllers\Receta2Controller@store')->name('recetas.store');
+Route::post('/recetas/crear','App\Http\Controllers\Receta2Controller@store')->name('recetas.store');
+
+Route::get('/recetas/editar/{id}','App\Http\Controllers\Receta2Controller@edit')->name('recetas.edit');
+
+Route::post('/recetas/editar','App\Http\Controllers\Receta2Controller@update')->name('recetas.update');
+
+Route::get('/recetas/eliminar/{id}','App\Http\Controllers\Receta2Controller@destroy')->name('recetas.destroy');
+
+Route::get('/recetas/ver/{id}','App\Http\Controllers\Receta2Controller@show')->name('recetas.ver');

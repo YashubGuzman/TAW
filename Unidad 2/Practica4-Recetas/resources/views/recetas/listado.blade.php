@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('botones')
-<a href="{{route ('recetas.create')}}" class="btn btn-primary mr-2" text-white>Crear receta</a>
+<a href="{{route ('recetas.create')}}" class="btn btn-outline-danger mr-2" text-white>CREAR RECETA</a>
+<a href="" class="btn btn-outline-success mr-2" text-white>EDITAR PERFIL</a>
+<a href="" class="btn btn-outline-primary mr-2" text-white>VER PERFIL</a>
 @endsection
 
 
@@ -12,27 +14,40 @@
 <h2 class="text-center mb-5">Administra tus recetas </h2>
     <div class="col-md-12 mx-auto bg-white p-3">
         <table class="table">
-            <thead class="bg-primary text-light">
-                <tr>
+            <thead class="bg-danger text-light">
+                <tr>   
+                    <th scole="col">Imagen</th>
                     <th scole="col">Titulo</th>
                     <th scole="col">Categoria</th>
-                    <th scole="col">Ingredientes</th>
-                    <th scole="col">Preparación</th>
-                    <th scole="col">Usuario</th>
-                    <th scole="col">Imagen</th>
+                    <th scole="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
 
                 @foreach($recetas as $recetas2)
                 <tr>
+                    <td><img src="{{ asset('storage').'/'.$recetas2->imagen}}" alt="" width="120"></td>
                     <td>{{$recetas2->receta}}</td>
                     <td>{{$recetas2->nombre}}</td>
-                    <td>{{$recetas2->ingredientes}}</td>
-                    <td>{{$recetas2->preparacion}}</td>
-                    <td>{{$recetas2->name}}</td>
+                  <!--  
+                    <td><button type="button" class="btn btn-danger btn-block" data-toggle="button" value="{{$recetas2->id_receta}}" aria-pressed="false" autocomplete="off">
+                        Eliminar
+                      </button>
+                      <button type="button" class="btn btn-dark btn-block" data-toggle="button" value="{{$recetas2->id_receta}}" aria-pressed="false" autocomplete="off">
+                        Editar
+                      </button>
+                      <button type="button" class="btn btn-success btn-block" data-toggle="button" value="{{$recetas2->id_receta}}" aria-pressed="false" autocomplete="off">
+                        Ver
+                      </button> </td>
+                    -->
+
                     <td>
-                    <img src="{{ asset('storage').'/'.$recetas2->imagen}}" alt="" width="100">
+                    
+                        <a href="{{route ('recetas.destroy', $recetas2->id_receta)}}" class="btn btn-danger mr-2 btn-block" text-white>Eliminar</a>
+                    
+                        <a href="{{route ('recetas.edit', $recetas2->id_receta)}}" class="btn btn-dark mr-2 btn-block" text-white>Editar</a>
+                    
+                        <a href="{{route ('recetas.ver', $recetas2->id_receta)}}" class="btn btn-success mr-2 btn-block" text-white>Ver</a>
                     </td>
                 </tr>
                 @endforeach

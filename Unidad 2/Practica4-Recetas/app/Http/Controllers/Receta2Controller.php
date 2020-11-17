@@ -24,6 +24,7 @@ class Receta2Controller extends Controller
         $recetas = DB::table('receta2s')
                     ->join('categoria_receta', 'categoria_receta.id', '=', 'receta2s.categoria_id')  //inner join para traer el nombre de la categoria correspondiente al id
                     ->join('users', 'users.id', '=', 'receta2s.user_id')    //inner join para traer el nombre del usuario que creo la receta correspondiente al ids
+                    ->where('user_id', '=', auth()->id())
                     ->get();
 
         //Retornar a la vista recetas/listado enviando como parametro la variable en donde trajimos nuestros datos
@@ -50,9 +51,7 @@ class Receta2Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {   $ban=1;
-
+    public function store(Request $request){   
         //Accedemos a un campo del $request y lo almacenamos con store y la ruta de guardado
 
         $data=request()->validate([
@@ -67,32 +66,18 @@ class Receta2Controller extends Controller
         //Obtener la ruta de la imagen
         $ruta_imagen = $request['imagen']->store('uploads-recetas','public');
 
-        if($ban==1){
-            
 
-            //Fasad de Laravel para insertar un registro a la BD
-        DB::table('receta2s')->insert([
-            'receta'=>$data['receta'],
-            'categoria_id'=>$data['categoria'],
-            'ingredientes'=>$data['ingredientes'],
-            'preparacion'=>$data['preparacion'],
-            'user_id'=>auth()->id(), //Obtiene el id del usuario que esta logeado y lo guarda en la base de datos
-            'imagen'=>$ruta_imagen,
-            'created_at'=>date('Y-m-d H:i:s'),
-            'updated_at'=>date('Y-m-d H:i:s'),
+            //Almacenar en la BD (con modelo) recetas por usuario
+            auth()->user()->recetas()->create([
+                'receta'=>$data['receta'],
+                'categoria_id'=>$data['categoria'],
+                'ingredientes'=>$data['ingredientes'],
+                'preparacion'=>$data['preparacion'],
+                'imagen'=>$ruta_imagen,
+            ]);
+ 
+        return redirect("/recetas");
             
-        ]);
-
-        $ban=2;
-    
-    }
-        if($ban==2){
-        //return view('recetas.create');
-        return Receta2Controller::index();
-        
-    }
-        //Almacena la receta a la BD
-        //dd($request->all());
     }
 
     /**
@@ -103,7 +88,7 @@ class Receta2Controller extends Controller
      */
     public function show(Receta2 $receta2)
     {
-        //
+        return view("recetas.ver");
     }
 
     /**
@@ -112,9 +97,16 @@ class Receta2Controller extends Controller
      * @param  \App\Models\Receta2  $receta2
      * @return \Illuminate\Http\Response
      */
-    public function edit(Receta2 $receta2)
+    public function edit($id)
     {
-        //
+        //Creamos una consulta a la db sobre las categorias de las recetas
+        $categorias = DB::table('categoria_receta')->get()->pluck('nombre','id'); //Esta consulta retorna un array con los elementos de la tabla categoria
+
+        $recetas = DB::table('receta2s')->where('id_receta', '=', $id)->get();
+
+       // return view('recetas.edit')->with('categorias',$categorias, 'recetas', $recetas);
+
+        return view('recetas.edit',compact('categorias','recetas'));
     }
 
     /**
@@ -126,7 +118,43 @@ class Receta2Controller extends Controller
      */
     public function update(Request $request, Receta2 $receta2)
     {
-        //
+        //Accedemos a un campo del $request y lo almacenamos con store y la ruta de guardado
+        $data=request()->validate([
+            //Reglas de validación
+            'id'=>'required',
+            'receta'=>'required|min:6',
+            'categoria' => 'required',
+            'preparacion'=>'required',
+            'ingredientes' => 'required',
+            'imagen' => 'image',
+        ]);
+
+        
+
+        //Verifica si se inserto una imagen, en caso de que si hara la inserción con la imagen en caso de que no, se quedara la imagen original
+        if ($_FILES['imagen']['name'] != null) {
+
+            //Obtener la ruta de la imagen
+            $ruta_imagen = $request['imagen']->store('uploads-recetas','public');
+
+            DB::table('receta2s')
+            ->where('id_receta', $data['id'])
+            ->update(['receta'=>$data['receta'],
+            'categoria_id'=>$data['categoria'],
+            'ingredientes'=>$data['ingredientes'],
+            'preparacion'=>$data['preparacion'],
+            'imagen'=>$ruta_imagen,
+            'updated_at'=>date('Y-m-d H:i:s')]);
+        }else{
+            DB::table('receta2s')
+            ->where('id_receta', $data['id'])
+            ->update(['receta'=>$data['receta'],
+            'categoria_id'=>$data['categoria'],
+            'ingredientes'=>$data['ingredientes'],
+            'preparacion'=>$data['preparacion'],
+            'updated_at'=>date('Y-m-d H:i:s')]);
+        }
+        return redirect("/recetas");
     }
 
     /**
@@ -135,8 +163,13 @@ class Receta2Controller extends Controller
      * @param  \App\Models\Receta2  $receta2
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Receta2 $receta2)
+    public function destroy($id)
     {
-        //
+        //Eliminar receta
+        DB::table('receta2s')->where('id_receta', '=', $id)->delete();
+        
+        return redirect("/recetas");
+        
     }
+
 }
