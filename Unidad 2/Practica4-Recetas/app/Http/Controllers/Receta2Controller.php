@@ -10,7 +10,7 @@ class Receta2Controller extends Controller
 {
         //Validar la restricción a todos los métodos de usuario autenticado
         public function __construct(){
-            $this->middleware('auth');
+            $this->middleware('auth',['except' => 'show']);
         }
     /**
      * Display a listing of the resource.
@@ -86,9 +86,17 @@ class Receta2Controller extends Controller
      * @param  \App\Models\Receta2  $receta2
      * @return \Illuminate\Http\Response
      */
-    public function show(Receta2 $receta2)
+    public function show($id)
     {
-        return view("recetas.ver");
+        //Se guarda en una variable los datos de la tabla receta2s
+        $recetas = DB::table('receta2s')
+        ->join('categoria_receta', 'categoria_receta.id', '=', 'receta2s.categoria_id')  //inner join para traer el nombre de la categoria correspondiente al id
+        ->join('users', 'users.id', '=', 'receta2s.user_id')    //inner join para traer el nombre del usuario que creo la receta correspondiente al ids
+        ->where('id_receta', '=', $id)->get();
+
+        //Retornar a la vista recetas/listado enviando como parametro la variable en donde trajimos nuestros datos
+        return view('recetas.ver',compact('recetas'));
+
     }
 
     /**
