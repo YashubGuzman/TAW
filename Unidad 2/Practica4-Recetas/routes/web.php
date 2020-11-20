@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('inicio');
-});
+Route::get('/','App\Http\Controllers\HomeController@index')->name('inicio.index');
 
 Auth::routes();
 

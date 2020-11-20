@@ -84,6 +84,8 @@
             </div>
         </nav>
 
+        
+
         <nav class="navbar navbar-expand-md navbar-light categorias-bg">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categorias">
@@ -106,6 +108,8 @@
                 </div>
             </div>
         </nav>
+
+        @yield('banner')
         
         <div class="container">
             <div class="row">
@@ -121,6 +125,9 @@
 
     <!--Definir el yield de los scripts para la integración del editor Trix -->
     @yield('scripts')
+
+
+    
     
 </body>
 </html>

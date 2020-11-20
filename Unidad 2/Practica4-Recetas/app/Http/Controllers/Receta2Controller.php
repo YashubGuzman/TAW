@@ -180,4 +180,10 @@ class Receta2Controller extends Controller
         
     }
 
+    public function categorias()
+    {
+        echo "hola";
+        
+    }
+
 }
