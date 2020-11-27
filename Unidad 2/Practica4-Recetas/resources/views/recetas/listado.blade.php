@@ -28,7 +28,7 @@
                 <tr>
                     <td><img src="{{ asset('storage').'/'.$recetas2->imagen}}" alt="" width="120"></td>
                     <td>{{$recetas2->receta}}</td>
-                    <td>{{$recetas2->nombre}}</td>
+                    <td>{{$recetas2->categoria->nombre}}</td>
                   <!--  
                     <td><button type="button" class="btn btn-danger btn-block" data-toggle="button" value="{{$recetas2->id_receta}}" aria-pressed="false" autocomplete="off">
                         Eliminar

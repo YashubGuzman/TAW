@@ -14,7 +14,7 @@ class CreateReceta2sTable extends Migration
     public function up()
     {
         //Crear Schema de la tabla categorias
-        Schema::create('categoria_receta', function (Blueprint $table) {
+        Schema::create('categoria_recetas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->timestamps();
@@ -24,7 +24,7 @@ class CreateReceta2sTable extends Migration
 
 
         Schema::create('receta2s', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_receta');
             $table->string('receta');
             $table->text('ingredientes')->nullable();
             $table->text('preparacion')->nullable();
@@ -34,7 +34,7 @@ class CreateReceta2sTable extends Migration
             $table->foreignId('user_id')->nullable()->references('id')->on('users')->comment('El usuario que crea la receta');
 
             //Agregamos el ID de la categoria que viene de la tabla de categoria
-            $table->foreignId('categoria_id')->nullable()->references('id')->on('categoria_receta')->comment('La categoria de la receta');
+            $table->foreignId('categoria_id')->nullable()->references('id')->on('categoria_recetas')->comment('La categoria de la receta');
 
             $table->timestamps();
         });

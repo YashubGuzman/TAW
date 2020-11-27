@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB; //Manda a llamar directamente la conexión para acceder a la base de datos
 use App\Models\Receta2;
+use App\Models\CategoriaReceta;
 use Illuminate\Http\Request;
 
 class Receta2Controller extends Controller
@@ -21,11 +22,7 @@ class Receta2Controller extends Controller
     {
         
         //Se guarda en una variable los datos de la tabla receta2s
-        $recetas = DB::table('receta2s')
-                    ->join('categoria_receta', 'categoria_receta.id', '=', 'receta2s.categoria_id')  //inner join para traer el nombre de la categoria correspondiente al id
-                    ->join('users', 'users.id', '=', 'receta2s.user_id')    //inner join para traer el nombre del usuario que creo la receta correspondiente al ids
-                    ->where('user_id', '=', auth()->id())
-                    ->get();
+        $recetas = auth()->user()->recetas;
 
         //Retornar a la vista recetas/listado enviando como parametro la variable en donde trajimos nuestros datos
         return view('recetas.listado',compact('recetas'));
@@ -39,7 +36,7 @@ class Receta2Controller extends Controller
     public function create()
     {
         //Creamos una consulta a la db sobre las categorias de las recetas
-        $categorias = DB::table('categoria_receta')->get()->pluck('nombre','id'); //Esta consulta retorna un array con los elementos de la tabla categoria
+        $categorias = CategoriaReceta::all(['id', 'nombre']);    
 
         //Manda a la vista del formulario
         return view('recetas.create')->with('categorias',$categorias);
@@ -90,7 +87,7 @@ class Receta2Controller extends Controller
     {
         //Se guarda en una variable los datos de la tabla receta2s
         $recetas = DB::table('receta2s')
-        ->join('categoria_receta', 'categoria_receta.id', '=', 'receta2s.categoria_id')  //inner join para traer el nombre de la categoria correspondiente al id
+        ->join('categoria_recetas', 'categoria_recetas.id', '=', 'receta2s.categoria_id')  //inner join para traer el nombre de la categoria correspondiente al id
         ->join('users', 'users.id', '=', 'receta2s.user_id')    //inner join para traer el nombre del usuario que creo la receta correspondiente al ids
         ->where('id_receta', '=', $id)->get();
 
@@ -108,7 +105,7 @@ class Receta2Controller extends Controller
     public function edit($id)
     {
         //Creamos una consulta a la db sobre las categorias de las recetas
-        $categorias = DB::table('categoria_receta')->get()->pluck('nombre','id'); //Esta consulta retorna un array con los elementos de la tabla categoria
+        $categorias = DB::table('categoria_recetas')->get()->pluck('nombre','id'); //Esta consulta retorna un array con los elementos de la tabla categoria
 
         $recetas = DB::table('receta2s')->where('id_receta', '=', $id)->get();
 

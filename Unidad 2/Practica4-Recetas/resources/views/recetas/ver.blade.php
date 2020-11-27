@@ -34,6 +34,10 @@
                 {!! $recetas[0]->preparacion !!}
             </div>
 
+            <div class="like text-center">
+                <button class="btn btn-primary my-3 center">Me gusta</button>
+            </div>
+
     </div>
 </article>
 
