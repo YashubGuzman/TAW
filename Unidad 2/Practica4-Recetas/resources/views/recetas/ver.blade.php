@@ -34,8 +34,9 @@
                 {!! $recetas[0]->preparacion !!}
             </div>
 
+            <!-- Boton para dar like a la receta -->
             <div class="like text-center">
-                <button class="btn btn-primary my-3 center">Me gusta</button>
+                <a href="{{route ('recetas.like', $recetas[0]->id_receta)}}" class="btn btn-primary" text-white>Me gusta</a>
             </div>
 
     </div>

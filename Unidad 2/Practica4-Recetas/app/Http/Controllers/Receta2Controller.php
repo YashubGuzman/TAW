@@ -177,10 +177,36 @@ class Receta2Controller extends Controller
         
     }
 
-    public function categorias()
-    {
-        echo "hola";
-        
+    public function like($id){
+
+        //Consulta a la tabla de likes para saber si existe o no ese like
+        $like_verify = DB::table('likes_receta')->where([
+        ['user_id', '=', auth()->user()->id],
+        ['receta_id', '=', $id],
+        ])->get();
+
+
+        //Hace un conteo de elementos en el array para ver si trajo un registro de like
+        $conteo = collect($like_verify)->count();
+
+
+
+        //Si no hay registros se va a registrar el like y en caso contrario se eliminara
+        if($conteo == 0){
+            //Registra el like en la base de datos
+            DB::table('likes_receta')->insert(
+                ['user_id' => auth()->user()->id,
+                'receta_id' => $id]
+            );
+        }else{
+            //Eliminar like
+            DB::table('likes_receta')->
+            where('id', '=', $like_verify[0]->id)->delete();
+        }
+
+        return redirect("/recetas/ver/$id");
+
+    
     }
 
 }
