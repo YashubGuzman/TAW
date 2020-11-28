@@ -91,8 +91,47 @@ class Receta2Controller extends Controller
         ->join('users', 'users.id', '=', 'receta2s.user_id')    //inner join para traer el nombre del usuario que creo la receta correspondiente al ids
         ->where('id_receta', '=', $id)->get();
 
+        //Consulta los likes de las recetas
+        $like_verify = DB::table('likes_receta')->where([
+            ['receta_id', '=', $id],
+            ])->get();
+
+        //Hace un conteo de elementos en el array
+        $num_likes = collect($like_verify)->count();
+
+
+
+
+
+
+        //Consulta a la tabla de likes para saber si existe o no ese like
+        $like_verify_button = DB::table('likes_receta')->where([
+            ['user_id', '=', auth()->user()->id],
+            ['receta_id', '=', $id],
+            ])->get();
+    
+    
+            //Hace un conteo de elementos en el array para ver si trajo un registro de like
+            $count = collect($like_verify_button)->count();
+    
+    
+    
+            //Si no hay registros se va a registrar el like y en caso contrario se eliminara
+            if($count == 0){
+                $estilo_boton = "btn btn-outline-primary";
+                
+            }else{
+                $estilo_boton = "btn btn-primary";
+            }
+
+
+
+
+
+        
+
         //Retornar a la vista recetas/listado enviando como parametro la variable en donde trajimos nuestros datos
-        return view('recetas.ver',compact('recetas'));
+        return view('recetas.ver',compact('recetas', 'num_likes', 'estilo_boton'));
 
     }
 

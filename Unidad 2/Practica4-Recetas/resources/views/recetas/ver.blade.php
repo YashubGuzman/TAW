@@ -36,8 +36,17 @@
 
             <!-- Boton para dar like a la receta -->
             <div class="like text-center">
-                <a href="{{route ('recetas.like', $recetas[0]->id_receta)}}" class="btn btn-primary" text-white>Me gusta</a>
+                <a href="{{route ('recetas.like', $recetas[0]->id_receta)}}" class="{{$estilo_boton}}" text-white>Me gusta</a>
+                
+            
             </div>
+
+            <div class="my-2 text-center">
+                <span class="font-weight-bold text-danger">A {{$num_likes}} les gusta</span>                
+            
+            </div>
+
+            
 
     </div>
 </article>
