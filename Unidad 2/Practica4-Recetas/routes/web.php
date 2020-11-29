@@ -36,5 +36,7 @@ Route::get('/recetas/eliminar/{id}','App\Http\Controllers\Receta2Controller@dest
 
 Route::get('/recetas/ver/{id}','App\Http\Controllers\Receta2Controller@show')->name('recetas.ver');
 
+Route::get('/categoria/{id}','App\Http\Controllers\CategoriasController@show')->name('categorias.ver');
+
 //Ruta para dar like a la receta
 Route::get('/recetas/ver/like/{id}','App\Http\Controllers\Receta2Controller@like')->name('recetas.like');
