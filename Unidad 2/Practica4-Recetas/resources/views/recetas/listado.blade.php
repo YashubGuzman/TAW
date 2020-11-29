@@ -1,13 +1,7 @@
 @extends('layouts.app')
 @section('botones')
 <a href="{{route ('recetas.create')}}" class="btn btn-outline-danger mr-2" text-white>CREAR RECETA</a>
-<a href="" class="btn btn-outline-success mr-2" text-white>EDITAR PERFIL</a>
-<a href="" class="btn btn-outline-primary mr-2" text-white>VER PERFIL</a>
 @endsection
-
-
-
-
 
 @section('content')
 
@@ -29,17 +23,6 @@
                     <td><img src="{{ asset('storage').'/'.$recetas2->imagen}}" alt="" width="120"></td>
                     <td>{{$recetas2->receta}}</td>
                     <td>{{$recetas2->categoria->nombre}}</td>
-                  <!--  
-                    <td><button type="button" class="btn btn-danger btn-block" data-toggle="button" value="{{$recetas2->id_receta}}" aria-pressed="false" autocomplete="off">
-                        Eliminar
-                      </button>
-                      <button type="button" class="btn btn-dark btn-block" data-toggle="button" value="{{$recetas2->id_receta}}" aria-pressed="false" autocomplete="off">
-                        Editar
-                      </button>
-                      <button type="button" class="btn btn-success btn-block" data-toggle="button" value="{{$recetas2->id_receta}}" aria-pressed="false" autocomplete="off">
-                        Ver
-                      </button> </td>
-                    -->
 
                     <td>
                     
