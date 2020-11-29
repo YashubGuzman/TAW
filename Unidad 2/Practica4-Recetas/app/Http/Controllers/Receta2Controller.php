@@ -99,11 +99,11 @@ class Receta2Controller extends Controller
         //Hace un conteo de elementos en el array
         $num_likes = collect($like_verify)->count();
 
+        $variable = collect(auth()->user())->count();
 
+        $estilo_boton = "btn btn-outline-primary";
 
-
-
-
+if($variable != 0){
         //Consulta a la tabla de likes para saber si existe o no ese like
         $like_verify_button = DB::table('likes_receta')->where([
             ['user_id', '=', auth()->user()->id],
@@ -116,18 +116,14 @@ class Receta2Controller extends Controller
     
     
     
-            //Si no hay registros se va a registrar el like y en caso contrario se eliminara
+            //Si no hay un like registrado el boton se vera transparente, en caso contrario estara coloreado
             if($count == 0){
                 $estilo_boton = "btn btn-outline-primary";
                 
             }else{
                 $estilo_boton = "btn btn-primary";
             }
-
-
-
-
-
+        }
         
 
         //Retornar a la vista recetas/listado enviando como parametro la variable en donde trajimos nuestros datos

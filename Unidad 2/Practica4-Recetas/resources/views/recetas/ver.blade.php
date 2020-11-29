@@ -44,9 +44,7 @@
             <div class="my-2 text-center">
                 <span class="font-weight-bold text-danger">A {{$num_likes}} les gusta</span>                
             
-            </div>
-
-            
+            </div>            
 
     </div>
 </article>
