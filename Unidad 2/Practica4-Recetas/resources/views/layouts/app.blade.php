@@ -85,7 +85,7 @@
         </nav>
 
         
-        <nav class="navbar navbar-expand-md navbar-light categorias-bg">
+        <nav class="navbar navbar-expand-md navbar-dark bg-danger">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categorias" aria-controls="categorias" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
