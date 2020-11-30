@@ -16,7 +16,7 @@ class CreateLikesRecetaTable extends Migration
         Schema::create('likes_receta', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('receta_id')->references('id_receta')->on('receta2s');
+            $table->foreignId('receta_id')->references('id_receta')->on('receta2s')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
