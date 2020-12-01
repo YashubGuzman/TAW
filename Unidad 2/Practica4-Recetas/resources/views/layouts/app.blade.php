@@ -110,11 +110,9 @@
         @yield('banner')
         
         <div class="container">
-            <div class="row">
-                <div class="py-2 mt-5 col-12">
-                    @yield('botones')
-                </div>           
+            <div class="row">         
                 <main class="py-2 mt-5 col-12">
+                    @yield('botones')
                     @yield('content')
                 </main>
             </div>
